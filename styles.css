@@ -17,8 +17,15 @@
     --ff-crimson-pro: 'Crimson Pro', serif;
     --ff-lora: 'Lora', serif;
     --ff-monserrat: 'Montserrat', sans-serif;
+}
 
-    --z-top: 10;
+/* Z-index */
+:root {
+    --z-back: -1;
+    --z-normal: 1;
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
 }
 
 /* Colors */
@@ -31,6 +38,7 @@
 
 a {
     text-decoration: none;
+    color: #FFFFFF;
 }
 
 img {
@@ -64,6 +72,26 @@ body {
 }
 
 /* Page */
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header__menu {
+    font-size: 2rem;
+}
+
+.header__close {
+    display: none;
+}
+
+.header__options {
+    display: none;
+}
 
 .header__interior {
     font-size: .7rem;
@@ -102,18 +130,24 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.content__link {
+    display: flex;
+    justify-content: space-between;
+    width: 7rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .content__more {
     font-weight: 600;
     color: #FFFFFF;
     font-size: .9rem;
-    margin-bottom: 2rem;
 }
 
 .designer {
     width: 80%;
     margin-top: -10%;
     margin-left: 16%;
-    z-index: var(--z-top);
     position: relative;
     background-color: var(--black-1);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -172,4 +206,55 @@ body {
     margin-bottom: .5rem;
 }
 
-@media screen and (min-width: 960px) {}
+@media screen and (min-width: 960px) {
+
+    body {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .main {
+        padding-top: 1rem;
+    }
+
+    .header__menu {
+        display: none;
+    }
+
+    .header__options {
+        display: block;
+    }
+
+    .header__links {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        font-family: var(--ff-monserrat);
+        font-weight: 600;
+    }
+
+    .header__items {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .header__items:last-child {
+        padding-right: 0;
+    }
+
+    .content {
+        margin-top: 6rem;
+        grid-template-columns: 4fr 5fr;
+    }
+
+    .designer {
+        width: 55%;
+        margin-left: 40%;
+    }
+
+    .footer_separator {
+        display: none;
+    }
+}
